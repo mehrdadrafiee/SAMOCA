@@ -91,10 +91,10 @@
   -->
 
   <script type="text/x-handlebars" id="components/single-collection">
-    <strong>{{title}}</strong>
+    <h3>{{title}}</h3>
     <br/>
-    <img {{bind-attr src=image}}>
-    {{copy}}
+    <img {{bind-attr src=image}} class="collectionsImage" align="left">
+    {{yield}}
     <br/>
     <br/>
   </script>
@@ -103,7 +103,9 @@
     <section class="pageClass clearfix">
       <h2>Collections</h2>
       {{#each}}
-        {{single-collection title=title copy=copy image=image}}
+        {{#single-collection title=title image=image}}
+          {{copy}}
+        {{/single-collection}}
       {{/each}}
     </section>
   </script>
