@@ -22,9 +22,9 @@
       </header>
       <nav class="navClass centerText">
         {{#link-to "about" class="btn btn-primary"}}About{{/link-to}}
-        <a href="#" class="btn btn-primary">Collections</a>
-        <a href="#" class="btn btn-primary">Exhibits</a>
-        <a href="#" class="btn btn-primary">Visitor Notes</a>
+        {{#link-to "collections" class="btn btn-primary"}}Collections{{/link-to}}
+        {{#link-to "exhibits" class="btn btn-primary"}}Exhibits{{/link-to}}
+        {{#link-to "notes" class="btn btn-primary"}}Visitor Notes{{/link-to}}
       </nav>
       <main class="mainClass cf">{{outlet}}</main>
       <footer class="footerClass centerText cf">
@@ -81,6 +81,30 @@
       <p>
         Our collections are designed to highlight the importance of contemporary art within modern society. Important influences, such as popular music, cinema, and current world events, are reflected in our halls. Through our diverse collections, events, and with the support of our patrons and volunteers, the museum helps to promote the importance of modern art around the world.
       </p>
+    </section>
+  </script>
+
+  <!--
+    =================================================================
+    "COLLECTIONS" COMPONENT TEMPLATE: displays the Collection content
+    =================================================================
+  -->
+
+  <script type="text/x-handlebars" id="components/single-collection">
+    <strong>{{title}}</strong>
+    <br/>
+    <img {{bind-attr src=image}}>
+    {{copy}}
+    <br/>
+    <br/>
+  </script>
+
+  <script type="text/x-handlebars" id="collections">
+    <section class="pageClass clearfix">
+      <h2>Collections</h2>
+      {{#each}}
+        {{single-collection title=title copy=copy image=image}}
+      {{/each}}
     </section>
   </script>
 
