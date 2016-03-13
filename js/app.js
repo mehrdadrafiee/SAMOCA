@@ -31,3 +31,8 @@ App.CollectionsRoute = Ember.Route.extend({
     ];
   }
 });
+
+App.SingleCollectionComponent = Ember.Component.extend({
+  tagName: "article",
+  classNames: ["collectionArticleClass cf"]
+});
